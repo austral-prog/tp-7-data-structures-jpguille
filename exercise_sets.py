@@ -1,5 +1,3 @@
-# Ejercicios de sets: catering del club de cocina
-
 ALCOHOLS = {
     "whiskey", "whisky", "white rum", "dark rum", "bourbon", "rye", "scotch",
     "vodka", "tequila", "gin", "dry vermouth", "sweet vermouth", "prosecco",
@@ -19,8 +17,7 @@ def clean_ingredients(nombre_plato, ingredientes):
     Returns:
         Una tupla (nombre_plato, set_de_ingredientes_sin_duplicados)
     """
-    pass  # Reemplazar con tu implementación
-
+    return nombre_plato, set(ingredientes)
 
 def check_drinks(nombre_bebida, ingredientes):
     """
@@ -36,8 +33,11 @@ def check_drinks(nombre_bebida, ingredientes):
     Returns:
         String con el nombre de la bebida seguido de "Cocktail" o "Mocktail"
     """
-    pass  # Reemplazar con tu implementación
-
+    for i in ingredientes:
+        for x in ALCOHOLS:
+            if i == x:
+                return f"{nombre_bebida} Cocktail"
+    return f"{nombre_bebida} Mocktail"
 
 def unique_chars(texto):
     """
@@ -52,8 +52,12 @@ def unique_chars(texto):
     Ejemplo:
         unique_chars("hello") -> {'h', 'e', 'l', 'o'}
     """
-    pass  # Reemplazar con tu implementación
 
+    sep = []
+    for i in range(len(texto)):
+        sep.append(texto[i])
+        i += 1
+    return set(sep)
 
 def sum_set(numeros):
     """
@@ -73,8 +77,11 @@ def sum_set(numeros):
         sum_set({1, 2, 3, 4}) -> 10
         sum_set(set()) -> 0
     """
-    pass  # Reemplazar con tu implementación
 
+    suma = 0
+    for i in numeros:
+        suma += i
+    return suma
 
 def common_elements(set_a, set_b):
     """
@@ -95,4 +102,9 @@ def common_elements(set_a, set_b):
         common_elements({1, 2, 3}, {2, 3, 4}) -> {2, 3}
         common_elements({1, 2}, {3, 4}) -> set()
     """
-    pass  # Reemplazar con tu implementación
+    new = set()
+    for a in set_a:
+        for b in set_b:
+            if a == b:
+                new.add(a)
+    return new
